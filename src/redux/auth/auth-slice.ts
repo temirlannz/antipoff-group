@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 const initialState = {
-    token: ""
+    token: localStorage.getItem('currentUser')
 }
 
 export const auth = createSlice({
