@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <ReduxProvider>
         <body className={inter.className}>
-          <header>
+          <header className='relative mx-auto max-w-7xl h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8'>
             <Navbar />
           </header>
           <main>
