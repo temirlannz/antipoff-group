@@ -1,19 +1,23 @@
 'use client'
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import Link from "next/link";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Avatar, AvatarFallback} from "@/components/ui/avatar";
 import {LogOut} from "lucide-react";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, useAppSelector} from "@/redux/store";
-import {logout} from "@/redux/auth/auth-slice";
+import {login, logout} from "@/redux/auth/auth-slice";
 import {useRouter} from "next/navigation";
 
 const Navbar = () => {
     const token = useAppSelector(state => state.authReducer.token);
     const dispatch = useDispatch<AppDispatch>();
     const router = useRouter();
+
+    useEffect(() => {
+        dispatch(login(JSON.parse(localStorage.getItem('currentUser') as string)))
+    }, []);
 
     return (
         <nav className='mx-auto max-w-7xl h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8'>
