@@ -70,7 +70,7 @@ const Signin = () => {
     }
 
     return (
-        <section className='h-screen w-full flex justify-center items-center'>
+        <section className='h-[calc(100vh-64px)] w-full flex justify-center items-center'>
             <div className='bg-background rounded-md w-full sm:w-1/2 lg:w-1/4 sm:bg-white py-8 px-4 sm:px-8'>
                 <div className='mb-5'>
                     <h3 className='text-md font-medium'>Sign-in</h3>
