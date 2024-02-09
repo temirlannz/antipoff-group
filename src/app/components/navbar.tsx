@@ -11,10 +11,9 @@ import {logout} from "@/redux/auth/auth-slice";
 import {useRouter} from "next/navigation";
 
 const Navbar = () => {
-    const user = useAppSelector(state => state.authReducer.user);
+    const token = useAppSelector(state => state.authReducer.token);
     const dispatch = useDispatch<AppDispatch>();
     const router = useRouter();
-    console.log(user)
 
     return (
         <nav className='mx-auto max-w-7xl h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8'>
@@ -22,7 +21,7 @@ const Navbar = () => {
                 Antipoff
             </Link>
 
-            {user.token &&
+            {token &&
                 <DropdownMenu>
                     <DropdownMenuTrigger>
                         <Avatar className='w-full h-full'>

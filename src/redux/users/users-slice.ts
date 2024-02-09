@@ -10,7 +10,7 @@ interface User {
 
 
 const initialState: { users: User[] } = {
-    users: JSON.parse(localStorage.getItem('users') || '[]'),
+    users: []
 }
 
 export const users = createSlice({
