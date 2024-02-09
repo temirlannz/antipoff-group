@@ -30,10 +30,12 @@ interface ResponseI {
 }
 
 const Users = () => {
-    const isAuthorized = useReadLocalStorage('currentUser');
+    if (typeof window !== 'undefined') {
+        const isAuthorized = localStorage.getItem('currentUser');
 
-    if (!isAuthorized) {
-        redirect('/sign-in');
+        if (!isAuthorized) {
+            redirect('/sign-in');
+        }
     }
 
     const [users, setUsers] = useState<UserI[]>([]);
