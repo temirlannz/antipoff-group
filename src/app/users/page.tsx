@@ -7,11 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {ChevronLeft, ChevronRight, Heart} from "lucide-react";
 import {Button} from "@/components/ui/button";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {AppDispatch, useAppSelector} from "@/redux/store";
 import {toggleUser} from "@/redux/users/users-slice";
-import {redirect, useRouter} from "next/navigation";
-import {useReadLocalStorage} from "usehooks-ts";
+import {redirect} from "next/navigation";
 
 interface UserI {
     id: number
