@@ -28,9 +28,12 @@ export const users = createSlice({
                 state.users.push(action.payload);
                 localStorage.setItem('users', JSON.stringify(state.users));
             }
+        },
+        setUsersOnLoad: (state, action: PayloadAction<any>) => {
+            state.users = action.payload;
         }
     }
 });
 
-export const { toggleUser } = users.actions;
+export const { toggleUser, setUsersOnLoad } = users.actions;
 export default users.reducer;

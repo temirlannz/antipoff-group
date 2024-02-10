@@ -9,7 +9,7 @@ import {ChevronLeft, ChevronRight, Heart} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {useDispatch} from "react-redux";
 import {AppDispatch, useAppSelector} from "@/redux/store";
-import {toggleUser} from "@/redux/users/users-slice";
+import {setUsersOnLoad, toggleUser} from "@/redux/users/users-slice";
 import {redirect} from "next/navigation";
 
 interface UserI {
@@ -57,6 +57,10 @@ const Users = () => {
 
         getUsers(page);
     }, [page, selector])
+
+    useEffect(() => {
+        dispatch(setUsersOnLoad(JSON.parse(localStorage.getItem('users') as string)))
+    }, []);
 
     const handleSaveUser = ({ id, email, first_name, last_name, avatar }: UserI) => {
         dispatch(toggleUser({
